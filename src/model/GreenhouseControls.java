@@ -6,22 +6,24 @@ package model;
 // classes allow you to encapsulate different
 // functionality for each type of event.
 
+import javafx.scene.paint.Color;
 import model.controller.Controller;
 import model.controller.Event;
 
 public class GreenhouseControls extends Controller {
   private boolean light = false;
+  private sample.Controller controller;
 
   public GreenhouseControls(sample.Controller controller) {
     super(controller);
+    this.controller = controller;
   }
 
   public class LightOn extends Event {
     public LightOn(long delayTime) { super(delayTime); }
     public void action() {
-      // Put hardware control code here to
-      // physically turn on the light.
       light = true;
+      controller.lightCircle.setFill(Color.DARKGREEN);
     }
     public String toString() { return "Light is on"; }
   }
@@ -31,6 +33,7 @@ public class GreenhouseControls extends Controller {
       // Put hardware control code here to
       // physically turn off the light.
       light = false;
+      controller.lightCircle.setFill(Color.DARKRED);
     }
     public String toString() { return "Light is off"; }
   }
@@ -40,6 +43,7 @@ public class GreenhouseControls extends Controller {
     public void action() {
       // Put hardware control code here.
       water = true;
+      controller.waterCircle.setFill(Color.DARKGREEN);
     }
     public String toString() {
       return "Water is on";
@@ -50,6 +54,7 @@ public class GreenhouseControls extends Controller {
     public void action() {
       // Put hardware control code here.
       water = false;
+      controller.waterCircle.setFill(Color.DARKRED);
     }
     public String toString() {
       return "Water is off";
@@ -63,6 +68,7 @@ public class GreenhouseControls extends Controller {
     public void action() {
       // Put hardware control code here.
       thermostat = "Night";
+      controller.thermCircle.setFill(Color.DARKGRAY);
     }
     public String toString() {
       return "Thermostat on night setting";
@@ -75,6 +81,7 @@ public class GreenhouseControls extends Controller {
     public void action() {
       // Put hardware control code here.
       thermostat = "Day";
+      controller.thermCircle.setFill(Color.YELLOW);
     }
     public String toString() {
       return "Thermostat on day setting";

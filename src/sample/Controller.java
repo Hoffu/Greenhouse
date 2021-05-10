@@ -1,16 +1,10 @@
 package sample;
 
-import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import model.GreenhouseControls;
 import model.controller.Event;
-
-import java.util.concurrent.Callable;
 
 public class Controller {
     public Circle lightCircle;
